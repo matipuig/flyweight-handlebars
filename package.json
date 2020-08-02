@@ -1,7 +1,7 @@
 {
   "name": "flyweight-handlebars",
   "description": "A handlebars util for compiling and rendering files with flyweight design pattern.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Matias Puig",
   "license": "MIT",
   "homepage": "https://www.github.com/matipuig",
