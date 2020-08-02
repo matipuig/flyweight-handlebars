@@ -118,6 +118,13 @@ class FlyWeightHandlebars {
   }
 
   /**
+   *  Returns the templates filenames.
+   */
+  getTemplatesFiles(): string[] {
+    return Object.keys(this._templates);
+  }
+
+  /**
    *  Removes a compiled file from memory.
    */
   remove(fileName: string): boolean {

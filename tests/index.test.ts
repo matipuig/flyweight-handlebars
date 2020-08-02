@@ -84,11 +84,24 @@ test('Rendering various files (flyweightHandlebars.getTemplate and flyweightHand
   expect(hb.countTemplatesInMemory()).toBe(1);
   hb.remove('test3.txt');
   expect(hb.countTemplatesInMemory()).toBe(0);
+
+  const fileInSubdir = hb.getTemplate('folder/test.txt');
+  const contentSubdir = fileInSubdir({ variable: '1' });
+  expect(contentSubdir).toBe('Test1 1');
+  hb.remove('folder/test.txt');
 });
 
 test('Emptying memory (flyweightHandlebars.empty)', () => {
   compileMany(['test1.txt', 'test2.txt', 'test3.txt']);
   expect(hb.countTemplatesInMemory()).toBe(3);
+  hb.empty();
+  expect(hb.countTemplatesInMemory()).toBe(0);
+});
+
+test('Getting templates filenames (flyweightHandlebars.getTemplatesFiles)', () => {
+  const filenames = ['test1.txt', 'test2.txt', 'test3.txt'];
+  compileMany(filenames);
+  expect(hb.getTemplatesFiles().sort()).toEqual(filenames.sort());
   hb.empty();
   expect(hb.countTemplatesInMemory()).toBe(0);
 });
