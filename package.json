@@ -32,7 +32,7 @@
     "control": "npm run lint && npm run format && npm run test",
     "compile": "npm run clean && tsc --project tsconfig.json",
     "build": " npm run control && npm run compile && npm audit --production --audit-level moderate && echo \"Finished!\"",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@types/node": "14.0.14",
